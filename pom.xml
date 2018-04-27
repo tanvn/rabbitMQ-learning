@@ -56,6 +56,21 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
+
+<!-- Make this jar executable -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+				  <archive>
+				    <manifest>
+					<addClasspath>true</addClasspath>
+					<mainClass>tanvn.learning.rabbitmq.App</mainClass>
+					<classpathPrefix>dependency-jars/</classpathPrefix>
+				    </manifest>
+				  </archive>
+				</configuration>
+			</plugin>
 			<!-- Copy project dependency -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -75,20 +90,6 @@
 					</configuration>
 				  </execution>
 				</executions>
-			</plugin>
-
-			<!-- Make this jar executable -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-				  <archive>
-					<manifest>
-						<!-- Jar file entry point -->
-						<mainClass>tanvn.learning.rabbitmq.App</mainClass>
-					</manifest>
-				  </archive>
-				</configuration>
 			</plugin>
 			
 		</plugins>
