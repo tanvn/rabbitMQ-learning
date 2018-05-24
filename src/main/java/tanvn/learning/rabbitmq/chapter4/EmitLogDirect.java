@@ -38,12 +38,16 @@ public class EmitLogDirect implements Runnable {
 				// publish to exchange with a routing key
 				channel.basicPublish(EXCHANGE_NAME, severity, null, message.getBytes());
 				System.out.println(" [x] Sent '" + severity + "':'" + message + "'");
+				Thread.sleep(2000);
 
 			}
 
 			channel.close();
 			connection.close();
 		} catch (IOException | TimeoutException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
